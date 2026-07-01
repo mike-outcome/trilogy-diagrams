@@ -3,229 +3,142 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Trilogy — Budget Variance Reporting · Workflow Overview</title>
-<meta name="description" content="Budget Variance Reporting — proof-of-concept workflow overview, prepared by Outcome for Trilogy Real Estate Group." />
+<title>Trilogy — Budget Variance Reporting · POC Overview</title>
+<meta name="description" content="Budget Variance Reporting — proof-of-concept overview, prepared by Outcome for Trilogy Real Estate Group." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --cream:#EEECE9;
-    --paper:#F6F5F5;
-    --white:#FFFFFF;
-    --ink:#181A1C;
-    --stone:#595755;
-    --tan:#AC8B74;
-    --tan-deep:#99877A;
-    --rust:#A54A3C;
-    --teal:#507377;
+    --cream:#EEECE9; --paper:#F6F5F5; --white:#FFFFFF;
+    --ink:#181A1C; --stone:#595755;
+    --tan:#AC8B74; --tan-deep:#99877A; --rust:#A54A3C; --teal:#507377;
     --line:#D9D5D0;
-    --serif:'Playfair Display', 'IvyMode', 'Times New Roman', serif;
-    --sans:'Jost', 'Centra', 'Helvetica Neue', Helvetica, sans-serif;
+    --serif:'Playfair Display','IvyMode','Times New Roman',serif;
+    --sans:'Jost','Centra','Helvetica Neue',Helvetica,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    background:var(--cream);
-    font-family:var(--sans);
-    color:var(--ink);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    padding:48px 20px 72px;
-  }
+  body{background:var(--cream);font-family:var(--sans);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;padding:48px 20px 72px;}
   .wrap{max-width:1120px;margin:0 auto;}
 
-  /* ---------- Header ---------- */
-  .brandbar{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:44px;
-  }
-  .wordmark{
-    font-family:var(--serif);font-weight:600;font-size:22px;
-    letter-spacing:5px;text-transform:uppercase;color:var(--ink);
-  }
-  .prepared{
-    font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;
-    color:var(--stone);font-weight:500;text-align:right;line-height:1.7;
-  }
+  /* Header */
+  .brandbar{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:44px;}
+  .wordmark{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:5px;text-transform:uppercase;color:var(--ink);}
+  .prepared{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);font-weight:500;text-align:right;line-height:1.7;}
   .prepared b{color:var(--tan);font-weight:600;}
 
-  .hero{margin-bottom:56px;}
-  .eyebrow{
-    font-size:11px;letter-spacing:3.5px;text-transform:uppercase;
-    color:var(--tan);font-weight:600;margin-bottom:20px;
-  }
-  .hero h1{
-    font-family:var(--serif);font-weight:500;
-    font-size:clamp(34px,5vw,58px);line-height:1.08;
-    letter-spacing:-.5px;color:var(--ink);margin-bottom:22px;
-  }
+  .hero{margin-bottom:58px;}
+  .eyebrow{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--tan);font-weight:600;margin-bottom:20px;}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.5px;color:var(--ink);margin-bottom:22px;}
   .hero h1 em{font-style:italic;color:var(--tan);}
-  .lede{
-    font-size:18px;color:var(--stone);max-width:760px;font-weight:300;
-  }
-  .poc-flag{
-    display:inline-flex;align-items:center;gap:9px;margin-top:26px;
-    background:var(--white);border:1px solid var(--line);
-    border-left:3px solid var(--tan);
-    padding:11px 18px;border-radius:3px;
-    font-size:13px;color:var(--stone);
-  }
+  .lede{font-size:18px;color:var(--stone);max-width:760px;font-weight:300;}
+  .poc-flag{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--tan);padding:11px 18px;border-radius:3px;font-size:13px;color:var(--stone);}
   .poc-flag svg{flex-shrink:0;color:var(--tan);}
   .poc-flag b{color:var(--ink);font-weight:600;}
 
-  /* ---------- Section framing ---------- */
-  .section{margin-bottom:60px;}
+  /* Section framing */
+  .section{margin-bottom:64px;}
   .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
-  .sec-num{
-    font-family:var(--serif);font-size:15px;color:var(--tan);font-weight:600;
-    letter-spacing:1px;
-  }
-  .sec-head h2{
-    font-family:var(--serif);font-weight:500;font-size:30px;color:var(--ink);
-    letter-spacing:-.3px;
-  }
+  .sec-num{font-family:var(--serif);font-size:15px;color:var(--tan);font-weight:600;letter-spacing:1px;}
+  .sec-head h2{font-family:var(--serif);font-weight:500;font-size:30px;color:var(--ink);letter-spacing:-.3px;}
   .sec-sub{color:var(--stone);font-size:15px;font-weight:300;margin:0 0 30px 0;max-width:760px;}
+  .mini-head{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--ink);margin:44px 0 18px;display:flex;align-items:center;gap:12px;}
+  .mini-head::before{content:"";width:24px;height:2px;background:var(--tan);}
 
-  /* ---------- Simple stage flow (manual) ---------- */
-  .flow{
-    display:flex;align-items:stretch;gap:0;flex-wrap:nowrap;
-    background:var(--white);border:1px solid var(--line);border-radius:10px;
-    padding:34px 20px;overflow:hidden;
-  }
-  .stage{
-    flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;
-    padding:0 14px;min-width:0;
-  }
-  .stage-ico{
-    width:56px;height:56px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    background:var(--cream);border:1px solid var(--line);
-    color:var(--tan);margin-bottom:16px;
-  }
-  .stage-label{
-    font-size:9.5px;letter-spacing:2px;text-transform:uppercase;
-    color:var(--tan);font-weight:600;margin-bottom:7px;
-  }
-  .stage h3{
-    font-family:var(--serif);font-weight:600;font-size:16px;
-    color:var(--ink);margin-bottom:9px;line-height:1.25;
-  }
+  /* Simple stage flow (manual) */
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:nowrap;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:34px 20px;overflow:hidden;}
+  .stage{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px;min-width:0;}
+  .stage-ico{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--cream);border:1px solid var(--line);color:var(--tan);margin-bottom:16px;}
+  .stage-label{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--tan);font-weight:600;margin-bottom:7px;}
+  .stage h3{font-family:var(--serif);font-weight:600;font-size:16px;color:var(--ink);margin-bottom:9px;line-height:1.25;}
   .stage p{font-size:12.5px;color:var(--stone);line-height:1.5;font-weight:300;}
-  .arrow{
-    display:flex;align-items:center;color:var(--line);flex-shrink:0;
-    padding-top:24px;
-  }
+  .arrow{display:flex;align-items:center;color:var(--line);flex-shrink:0;padding-top:24px;}
 
-  /* ---------- Pipeline diagram (Outcome) ---------- */
-  .diagram{
-    background:linear-gradient(180deg,#fff 0%, #fbfaf9 100%);
-    border:1px solid var(--tan);border-radius:12px;
-    box-shadow:0 20px 44px -30px rgba(172,139,116,.6);
-    padding:40px 26px 34px;
-  }
+  /* Pipeline diagram (Outcome) */
+  .diagram{background:linear-gradient(180deg,#fff 0%,#fbfaf9 100%);border:1px solid var(--tan);border-radius:12px;box-shadow:0 20px 44px -30px rgba(172,139,116,.6);padding:40px 26px 34px;}
   .pipe{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;gap:4px;}
-  .node{
-    background:var(--white);border:1px solid var(--line);border-radius:11px;
-    padding:16px 15px;width:174px;text-align:center;
-    display:flex;flex-direction:column;align-items:center;gap:9px;
-  }
-  .node .n-ico{
-    width:46px;height:46px;border-radius:50%;background:var(--cream);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
-    color:var(--tan);flex-shrink:0;
-  }
+  .node{background:var(--white);border:1px solid var(--line);border-radius:11px;padding:16px 15px;width:174px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:9px;}
+  .node .n-ico{width:46px;height:46px;border-radius:50%;background:var(--cream);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--tan);flex-shrink:0;}
   .node .n-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--tan);font-weight:600;}
   .node h3{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink);line-height:1.2;}
   .node p{font-size:11.5px;color:var(--stone);font-weight:300;line-height:1.45;}
-  .node.hub{
-    background:linear-gradient(140deg,var(--tan) 0%, #96775f 100%);
-    border-color:var(--tan);color:#fff;box-shadow:0 14px 26px -16px rgba(150,119,95,.85);
-    width:192px;
-  }
+  .node.hub{background:linear-gradient(140deg,var(--tan) 0%,#96775f 100%);border-color:var(--tan);color:#fff;box-shadow:0 14px 26px -16px rgba(150,119,95,.85);width:192px;}
   .node.hub .n-ico{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);color:#fff;}
   .node.hub .n-label{color:#f6e7dc;}
   .node.hub h3{color:#fff;}
   .node.hub p{color:#f3e5da;}
   .pnode-arrow{display:flex;align-items:center;color:var(--tan);flex-shrink:0;padding-top:34px;}
-
   .down{display:flex;flex-direction:column;align-items:center;margin:16px 0 22px;}
   .down .stem{width:2px;height:22px;background:var(--tan);opacity:.5;}
-  .down .pill{
-    margin-top:12px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;
-    color:var(--stone);font-weight:600;background:var(--cream);border:1px solid var(--line);
-    padding:7px 18px;border-radius:20px;
-  }
+  .down .pill{margin-top:12px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--stone);font-weight:600;background:var(--cream);border:1px solid var(--line);padding:7px 18px;border-radius:20px;}
   .out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-  .out-chip{
-    display:flex;align-items:center;gap:13px;background:var(--white);
-    border:1px solid var(--line);border-left:3px solid var(--tan);border-radius:8px;
-    padding:15px 17px;transition:transform .16s ease, box-shadow .16s ease;
-  }
+  .out-chip{display:flex;align-items:center;gap:13px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--tan);border-radius:8px;padding:15px 17px;transition:transform .16s ease,box-shadow .16s ease;}
   .out-chip:hover{transform:translateY(-2px);box-shadow:0 14px 26px -20px rgba(24,26,28,.5);}
   .out-chip .o-ico{color:var(--rust);flex-shrink:0;display:flex;}
   .out-chip span{font-family:var(--serif);font-weight:600;font-size:13.5px;color:var(--ink);line-height:1.22;}
 
-  /* ---------- Capabilities ---------- */
-  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .cap{
-    background:var(--white);border:1px solid var(--line);border-radius:8px;
-    padding:24px 22px;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  }
-  .cap:hover{transform:translateY(-3px);box-shadow:0 16px 30px -22px rgba(24,26,28,.45);border-color:var(--tan);}
-  .cap-ico{
-    width:42px;height:42px;border-radius:9px;background:var(--cream);
-    display:flex;align-items:center;justify-content:center;color:var(--rust);margin-bottom:16px;
-  }
-  .cap h4{font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:7px;color:var(--ink);}
-  .cap p{font-size:13px;color:var(--stone);font-weight:300;line-height:1.55;}
-
-  /* ---------- Before / After ---------- */
+  /* Before / After */
   .ba{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .ba-row{display:grid;grid-template-columns:1.1fr 1.4fr 1.6fr;}
   .ba-row + .ba-row{border-top:1px solid var(--line);}
-  .ba-row > div{padding:18px 22px;}
+  .ba-row > div{padding:17px 22px;}
   .ba-head{background:var(--ink);}
-  .ba-head > div{color:var(--cream);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding:16px 22px;}
+  .ba-head > div{color:var(--cream);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding:15px 22px;}
   .ba-head .h-out{color:var(--tan);}
   .ba-dim{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink);}
   .ba-today{color:var(--stone);font-size:13.5px;font-weight:300;border-left:1px solid var(--line);}
   .ba-out{color:var(--ink);font-size:13.5px;border-left:1px solid var(--line);background:#fbfaf9;}
   .ba-out b{color:var(--rust);font-weight:600;}
 
-  /* ---------- Footer ---------- */
-  .foot{
-    margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;
-  }
+  /* What's Next (future / contract) */
+  .next-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .next{background:var(--white);border:1px dashed var(--tan);border-radius:10px;padding:22px 22px;display:flex;gap:16px;align-items:flex-start;}
+  .next .nx-ico{width:46px;height:46px;border-radius:10px;background:#eef2f2;border:1px solid #d7e2e2;color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .next h4{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--ink);margin-bottom:6px;}
+  .next p{font-size:13px;color:var(--stone);font-weight:300;line-height:1.55;}
+  .next .nx-tag{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:600;border:1px solid #cfe0e0;border-radius:12px;padding:2px 10px;margin-top:11px;}
+
+  /* Vision band */
+  .vision{background:var(--ink);border-radius:14px;padding:56px 48px;color:var(--cream);}
+  .vision .v-eyebrow{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--tan);font-weight:600;margin-bottom:20px;}
+  .vision h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,40px);line-height:1.2;color:#fff;margin-bottom:20px;max-width:840px;letter-spacing:-.3px;}
+  .vision h2 em{font-style:italic;color:var(--tan);}
+  .vision p{font-size:16px;color:#cfc9c2;font-weight:300;max-width:740px;line-height:1.66;}
+  .v-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px;align-items:center;}
+  .v-chip{font-size:12px;letter-spacing:.4px;padding:8px 15px;border-radius:20px;border:1px solid #3a3d40;color:#d9d5d0;background:#202325;}
+  .v-chip.live{border-color:var(--tan);color:#fff;background:#2a2622;}
+  .v-chip.live b{color:var(--tan);font-weight:600;}
+  .v-op{color:#585652;font-size:15px;padding:0 2px;}
+  .v-hub{font-family:var(--serif);font-weight:600;color:#fff;font-size:13.5px;padding:9px 18px;border:1px solid var(--tan);border-radius:20px;background:linear-gradient(140deg,rgba(172,139,116,.28),rgba(172,139,116,.08));}
+  .v-note{font-size:11px;color:#7a7772;margin-top:16px;letter-spacing:.5px;}
+
+  /* Footer */
+  .foot{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
   .foot .oc{font-family:var(--serif);font-size:15px;color:var(--ink);letter-spacing:.5px;}
   .foot .oc b{color:var(--tan);}
   .foot .meta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--stone);text-align:right;line-height:1.9;}
 
-  /* ---------- Responsive ---------- */
+  /* Responsive */
   @media(max-width:880px){
     .flow{flex-direction:column;gap:0;}
     .stage{flex-direction:row;text-align:left;align-items:flex-start;gap:16px;padding:16px 6px;}
     .stage-ico{margin-bottom:0;}
     .stage .txt{flex:1;}
     .arrow{transform:rotate(90deg);padding:4px 0;align-self:center;}
-
     .pipe{flex-direction:column;align-items:center;gap:2px;}
     .node,.node.hub{width:100%;max-width:360px;flex-direction:row;text-align:left;align-items:center;gap:14px;}
     .node .txt2{flex:1;}
     .pnode-arrow{transform:rotate(90deg);padding:2px 0;}
     .out-grid{grid-template-columns:1fr;}
-
-    .cap-grid{grid-template-columns:1fr 1fr;}
+    .next-grid{grid-template-columns:1fr;}
     .ba-row{grid-template-columns:1fr;}
     .ba-row > div{border-left:none !important;}
     .ba-today,.ba-out{border-top:1px dashed var(--line);}
     .ba-head{display:none;}
+    .vision{padding:40px 26px;}
   }
-  @media(max-width:520px){
-    .cap-grid{grid-template-columns:1fr;}
-    body{padding:32px 14px 56px;}
-  }
+  @media(max-width:520px){ body{padding:32px 14px 56px;} }
 </style>
 </head>
 <body>
@@ -239,135 +152,83 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="eyebrow">Proof of Concept · Workflow Overview</div>
+    <div class="eyebrow">Proof of Concept · Delivery Overview</div>
     <h1>Budget Variance Reporting,<br/><em>reimagined</em> on one platform.</h1>
-    <p class="lede">This is a side-by-side look at how your monthly budget-variance review works today — and how the proof of concept we built streamlines it. The goal: less manual report-pulling, cleaner explanations, and answers the moment you need them.</p>
+    <p class="lede">A side-by-side look at how your monthly budget-variance review works today, what we built in the proof of concept, and where it can go from here — less manual report-pulling, cleaner explanations, and answers the moment you need them.</p>
     <div class="poc-flag">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v4"/><path d="M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg>
       <span><b>This is a proof of concept</b> — built and demonstrated on one property (Velo Village Apartments). The full rollout extends the same design to all 16.</span>
     </div>
   </div>
 
-  <!-- Today -->
+  <!-- 01 Today -->
   <div class="section">
     <div class="sec-head"><span class="sec-num">01</span><h2>Your Process Today</h2></div>
     <p class="sec-sub">How the monthly budget-variance review runs now, through Yardi and Canopy.</p>
     <div class="flow">
       <div class="stage">
         <div class="stage-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h6"/></svg></div>
-        <div class="txt">
-          <div class="stage-label">The Data</div>
-          <h3>Monthly Financials</h3>
-          <p>Each property's actuals live in Yardi; budgets are set annually. 16 properties.</p>
-        </div>
+        <div class="txt"><div class="stage-label">The Data</div><h3>Monthly Financials</h3><p>Each property's actuals live in Yardi; budgets are set annually. 16 properties.</p></div>
       </div>
       <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="stage">
         <div class="stage-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 6a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg></div>
-        <div class="txt">
-          <div class="stage-label">Who's Involved</div>
-          <h3>PMs &amp; Asset Team</h3>
-          <p>On-site property managers review flagged lines; your asset-management team oversees.</p>
-        </div>
+        <div class="txt"><div class="stage-label">Who's Involved</div><h3>PMs &amp; Asset Team</h3><p>On-site property managers review flagged lines; your asset-management team oversees.</p></div>
       </div>
       <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="stage">
         <div class="stage-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 7l4-4M4 7l4 4"/><path d="M20 17H4M20 17l-4-4M20 17l-4 4"/></svg></div>
-        <div class="txt">
-          <div class="stage-label">How It Arrives</div>
-          <h3>Yardi → Canopy</h3>
-          <p>Financials flow automatically into Canopy each month, around the 18th–20th.</p>
-        </div>
+        <div class="txt"><div class="stage-label">How It Arrives</div><h3>Yardi → Canopy</h3><p>Financials flow automatically into Canopy each month, around the 18th–20th.</p></div>
       </div>
       <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="stage">
         <div class="stage-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
-        <div class="txt">
-          <div class="stage-label">What Happens</div>
-          <h3>Flag &amp; Explain</h3>
-          <p>Canopy highlights accounts more than 10% and $250 off budget. PMs type an explanation for each by hand.</p>
-        </div>
+        <div class="txt"><div class="stage-label">What Happens</div><h3>Flag &amp; Explain</h3><p>Canopy highlights accounts more than 10% and $250 off budget. PMs type an explanation for each by hand.</p></div>
       </div>
       <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="stage">
         <div class="stage-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></div>
-        <div class="txt">
-          <div class="stage-label">The Result</div>
-          <h3>QBR Inputs</h3>
-          <p>Explanations feed quarterly reviews. Multi-month trends and reminders are handled manually.</p>
-        </div>
+        <div class="txt"><div class="stage-label">The Result</div><h3>QBR Inputs</h3><p>Explanations feed quarterly reviews. Multi-month trends and reminders are handled manually.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- Outcome pipeline -->
+  <!-- 02 What We Built -->
   <div class="section">
-    <div class="sec-head"><span class="sec-num">02</span><h2>How Outcome Works — What We Built</h2></div>
+    <div class="sec-head"><span class="sec-num">02</span><h2>What We Built</h2></div>
     <p class="sec-sub">Your monthly financials flow through the platform automatically and land in one workspace your whole team can use.</p>
     <div class="diagram">
       <div class="pipe">
-
         <div class="node">
           <div class="n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h6"/></svg></div>
-          <div class="txt2">
-            <div class="n-label">Input</div>
-            <h3>Monthly Financials</h3>
-            <p>Your Yardi budget-vs-actual file, one per property.</p>
-          </div>
+          <div class="txt2"><div class="n-label">Input</div><h3>Monthly Financials</h3><p>Your Yardi budget-vs-actual file, one per property.</p></div>
         </div>
-
         <div class="pnode-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
         <div class="node">
           <div class="n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7l8-4 8 4-8 4z"/><path d="M4 12l8 4 8-4M4 17l8 4 8-4"/></svg></div>
-          <div class="txt2">
-            <div class="n-label">Step 01</div>
-            <h3>Read &amp; Organized</h3>
-            <p>Outcome rebuilds your full statement automatically.</p>
-          </div>
+          <div class="txt2"><div class="n-label">Step 01</div><h3>Read &amp; Organized</h3><p>Outcome rebuilds your full statement automatically.</p></div>
         </div>
-
         <div class="pnode-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
         <div class="node">
           <div class="n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="txt2">
-            <div class="n-label">Step 02</div>
-            <h3>Every Account Verified</h3>
-            <p>Checked against your chart of accounts so nothing is missed.</p>
-          </div>
+          <div class="txt2"><div class="n-label">Step 02</div><h3>Every Account Verified</h3><p>Checked against your chart of accounts so nothing is missed.</p></div>
         </div>
-
         <div class="pnode-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
         <div class="node">
           <div class="n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V4M5 4h11l-2 3 2 3H5"/></svg></div>
-          <div class="txt2">
-            <div class="n-label">Step 03</div>
-            <h3>Variances Flagged</h3>
-            <p>Over-budget lines that need an explanation — by thresholds you set.</p>
-          </div>
+          <div class="txt2"><div class="n-label">Step 03</div><h3>Variances Flagged</h3><p>Over-budget lines that need an explanation — by thresholds you set.</p></div>
         </div>
-
         <div class="pnode-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
         <div class="node hub">
           <div class="n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg></div>
-          <div class="txt2">
-            <div class="n-label">Your Workspace</div>
-            <h3>Budget Variance Hub</h3>
-            <p>One live place for the whole team.</p>
-          </div>
+          <div class="txt2"><div class="n-label">Your Workspace</div><h3>Budget Variance Hub</h3><p>One live place for the whole team.</p></div>
         </div>
-
       </div>
-
       <div class="down">
         <div class="stem"></div>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#AC8B74" stroke-width="1.6"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
         <div class="pill">Everything lands in one workspace</div>
       </div>
-
       <div class="out-grid">
         <div class="out-chip"><span class="o-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></span><span>Budget Comparison statement</span></div>
         <div class="out-chip"><span class="o-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8.5 11.5l2 2 4-4"/></svg></span><span>Variance Review &amp; comments</span></div>
@@ -377,86 +238,81 @@
         <div class="out-chip"><span class="o-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span><span>Ask Octo, in plain English</span></div>
       </div>
     </div>
+
+    <div class="mini-head">What changes for you</div>
+    <div class="ba">
+      <div class="ba-row ba-head"><div>&nbsp;</div><div>Today · Canopy</div><div class="h-out">With Outcome</div></div>
+      <div class="ba-row"><div class="ba-dim">Flagging variances</div><div class="ba-today">Reviewed manually in Canopy</div><div class="ba-out"><b>Automatic</b>, using thresholds you set</div></div>
+      <div class="ba-row"><div class="ba-dim">Explanations</div><div class="ba-today">Typed by hand, quality varies</div><div class="ba-out">One place, <b>completion tracked</b></div></div>
+      <div class="ba-row"><div class="ba-dim">Multi-month trends</div><div class="ba-today">Assembled by hand</div><div class="ba-out"><b>Built in</b>, per line item</div></div>
+      <div class="ba-row"><div class="ba-dim">Getting answers</div><div class="ba-today">Pull several reports</div><div class="ba-out"><b>Ask in plain English</b>, answered instantly</div></div>
+      <div class="ba-row"><div class="ba-dim">QBR preparation</div><div class="ba-today">Compiled across sources</div><div class="ba-out">One dashboard, <b>export-ready</b></div></div>
+    </div>
   </div>
 
-  <!-- Capabilities -->
+  <!-- 03 What's Next -->
   <div class="section">
-    <div class="sec-head"><span class="sec-num">03</span><h2>What the Platform Gives You</h2></div>
-    <p class="sec-sub">Six capabilities delivered in the proof of concept — all in one place.</p>
-    <div class="cap-grid">
-      <div class="cap">
-        <div class="cap-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
-        <h4>Interactive Budget Statement</h4>
-        <p>Your full income statement, rebuilt and organized, with every over-budget line highlighted.</p>
+    <div class="sec-head"><span class="sec-num">03</span><h2>What's Next — If We Go to Contract</h2></div>
+    <p class="sec-sub">Not built in the proof of concept, and ready to add at rollout — this is where the everyday time savings compound.</p>
+    <div class="next-grid">
+      <div class="next">
+        <div class="nx-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 1 1 .8-7.9A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7z"/><path d="M12 12v6M9.5 15.5L12 18l2.5-2.5"/></svg></div>
+        <div>
+          <h4>Automated Data Delivery</h4>
+          <p>Your monthly files flow straight from Yardi into Outcome — no manual upload — across all 16 properties, on schedule.</p>
+          <span class="nx-tag">Automation</span>
+        </div>
       </div>
-      <div class="cap">
-        <div class="cap-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8.5 11.5l2 2 4-4"/></svg></div>
-        <h4>Variance Review &amp; Comments</h4>
-        <p>Explanations captured in one place, with a live tracker of what's done and what's outstanding.</p>
+      <div class="next">
+        <div class="nx-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 11.5-2.3"/><path d="M18 8v6M15 11h6"/></svg></div>
+        <div>
+          <h4>Property Manager Onboarding</h4>
+          <p>Give on-site teams their own secure logins to review and enter variance comments directly in Outcome — replacing the manual entry step in Canopy.</p>
+          <span class="nx-tag">Access</span>
+        </div>
       </div>
-      <div class="cap">
-        <div class="cap-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
-        <h4>Multi-Month Trends</h4>
-        <p>See how any line item moves over time — the pattern month-to-month review tends to miss.</p>
+      <div class="next">
+        <div class="nx-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/><circle cx="19" cy="6" r="3" fill="currentColor" stroke="none"/></svg></div>
+        <div>
+          <h4>Automated Reminder Emails</h4>
+          <p>Outcome emails property managers when they have variance explanations outstanding — so every flagged line is addressed before the month closes.</p>
+          <span class="nx-tag">Workflow</span>
+        </div>
       </div>
-      <div class="cap">
-        <div class="cap-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18z"/></svg></div>
-        <h4>AI Variance Summary</h4>
-        <p>An analyst-style written summary of what drove the month — for a single property or the portfolio.</p>
-      </div>
-      <div class="cap">
-        <div class="cap-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
-        <h4>Ask in Plain English</h4>
-        <p>“What are the top 5 expense variances this month?” — answered instantly by the built-in assistant.</p>
-      </div>
-      <div class="cap">
-        <div class="cap-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h7M15 18h5"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="13" cy="18" r="2"/></svg></div>
-        <h4>Thresholds You Control</h4>
-        <p>Set the variance triggers by property and account — no code, no waiting on a report change.</p>
+      <div class="next">
+        <div class="nx-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18"/><rect x="4" y="9" width="6" height="12"/><rect x="13" y="4" width="7" height="17"/><path d="M16 8h1M16 12h1M16 16h1M6.5 13h1"/></svg></div>
+        <div>
+          <h4>All 16 Properties + Portfolio View</h4>
+          <p>Scale from this single-property proof to the full portfolio, with roll-up views built for your quarterly business reviews.</p>
+          <span class="nx-tag">Scale</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Before / After -->
+  <!-- 04 Bigger Picture -->
   <div class="section">
-    <div class="sec-head"><span class="sec-num">04</span><h2>What Changes for You</h2></div>
-    <p class="sec-sub">The same review, with the manual steps taken off your plate.</p>
-    <div class="ba">
-      <div class="ba-row ba-head">
-        <div>&nbsp;</div><div>Today · Canopy</div><div class="h-out">With Outcome</div>
+    <div class="vision">
+      <div class="v-eyebrow">The Bigger Picture</div>
+      <h2>Budget variance is just the start. As more of Trilogy's data lives on Outcome, it becomes the one place to <em>ask anything</em> — across every property and workflow.</h2>
+      <p>Each new use case we build plugs into the same connected foundation. Instead of pulling separate reports from separate systems, your team asks a question once and gets an answer that spans everything — making Outcome the platform you reach for first.</p>
+      <div class="v-chips">
+        <span class="v-chip live"><b>Budget Variance</b> · Live</span>
+        <span class="v-op">+</span>
+        <span class="v-chip">Rent Roll</span>
+        <span class="v-chip">Renewals &amp; Leasing</span>
+        <span class="v-chip">Operations</span>
+        <span class="v-op">→</span>
+        <span class="v-hub">One Outcome platform · Ask anything</span>
       </div>
-      <div class="ba-row">
-        <div class="ba-dim">Flagging variances</div>
-        <div class="ba-today">Reviewed manually in Canopy</div>
-        <div class="ba-out"><b>Automatic</b>, using thresholds you set</div>
-      </div>
-      <div class="ba-row">
-        <div class="ba-dim">Explanations</div>
-        <div class="ba-today">Typed by hand, quality varies</div>
-        <div class="ba-out">Captured in one place, <b>completion tracked</b></div>
-      </div>
-      <div class="ba-row">
-        <div class="ba-dim">Multi-month trends</div>
-        <div class="ba-today">Assembled by hand</div>
-        <div class="ba-out"><b>Built in</b>, per line item</div>
-      </div>
-      <div class="ba-row">
-        <div class="ba-dim">Getting answers</div>
-        <div class="ba-today">Pull several reports</div>
-        <div class="ba-out"><b>Ask in plain English</b>, answered instantly</div>
-      </div>
-      <div class="ba-row">
-        <div class="ba-dim">QBR preparation</div>
-        <div class="ba-today">Compiled across sources</div>
-        <div class="ba-out">One dashboard, <b>export-ready</b></div>
-      </div>
+      <div class="v-note">Illustrative — each new use case plugs into the same connected platform.</div>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="foot">
     <div class="oc">Built by <b>Outcome</b> for Trilogy Real Estate Group</div>
-    <div class="meta">Budget Variance Reporting · Proof of Concept<br/>Workflow overview · Prepared for Sarah Pollard</div>
+    <div class="meta">Budget Variance Reporting · Proof of Concept<br/>Prepared for Sarah Pollard</div>
   </div>
 
 </div>
